@@ -71,7 +71,7 @@ namespace HNI_TPmoyennes
         // Moyenne générale de la classe
         public float moyenneGeneral()
         {
-            for (int i = 0; i < matieres.Count; i++)
+            for (int i = 0; i < 4; i++)
             {
                 moyennesClasse.Add(moyenneMatiere(i));
             }
@@ -136,7 +136,7 @@ namespace HNI_TPmoyennes
         
         public float moyenneGeneral()
         {
-           for (int i = 0; i < matieres.Count ; i++)
+           for (int i = 0; i < 4 ; i++)
            {
                 moyennes.Add(moyenneMatiere(i));
            }

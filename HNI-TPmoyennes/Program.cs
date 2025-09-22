@@ -48,6 +48,12 @@ namespace HNI_TPmoyennes
             // Afficher la moyenne d'un élève dans une matière
             Console.WriteLine(eleve.prenom + " " + eleve.nom + ", Moyenne en " + sixiemeA.matieres[3] + " : " +
             eleve.moyenneMatiere(3) + "\n");
+            Console.WriteLine(eleve.prenom + " " + eleve.nom + ", Moyenne en " + sixiemeA.matieres[2] + " : " +
+            eleve.moyenneMatiere(2) + "\n");
+            Console.WriteLine(eleve.prenom + " " + eleve.nom + ", Moyenne en " + sixiemeA.matieres[1] + " : " +
+            eleve.moyenneMatiere(1) + "\n");
+            Console.WriteLine(eleve.prenom + " " + eleve.nom + ", Moyenne en " + sixiemeA.matieres[0] + " : " +
+            eleve.moyenneMatiere(0) + "\n");
             // Afficher la moyenne générale du même élève
             Console.WriteLine(eleve.prenom + " " + eleve.nom + ", Moyenne Generale : " + eleve.moyenneGeneral() + "\n");
             // Afficher la moyenne de la classe dans une matière
