@@ -43,17 +43,18 @@ namespace HNI_TPmoyennes
                 }
             }
 
-            Eleve eleve = sixiemeA.eleves[6];
+           
+            Eleve eleve = sixiemeA.eleves[1];
             // Afficher la moyenne d'un élève dans une matière
-            Console.Write(eleve.prenom + " " + eleve.nom + ", Moyenne en " + sixiemeA.matieres[1] + " : " +
-            eleve.moyenneMatiere(1) + "\n");
+            Console.WriteLine(eleve.prenom + " " + eleve.nom + ", Moyenne en " + sixiemeA.matieres[3] + " : " +
+            eleve.moyenneMatiere(3) + "\n");
             // Afficher la moyenne générale du même élève
-            Console.Write(eleve.prenom + " " + eleve.nom + ", Moyenne Generale : " + eleve.moyenneGeneral() + "\n");
+            Console.WriteLine(eleve.prenom + " " + eleve.nom + ", Moyenne Generale : " + eleve.moyenneGeneral() + "\n");
             // Afficher la moyenne de la classe dans une matière
-            Console.Write("Classe de " + sixiemeA.nomClasse + ", Moyenne en " + sixiemeA.matieres[1] + " : " +
-            sixiemeA.moyenneMatiere(1) + "\n");
+            Console.WriteLine("Classe de " + sixiemeA.nomClasse + ", Moyenne en " + sixiemeA.matieres[0] + " : " +
+            sixiemeA.moyenneMatiere(0) + "\n");
             // Afficher la moyenne générale de la classe
-            Console.Write("Classe de " + sixiemeA.nomClasse + ", Moyenne Generale : " + sixiemeA.moyenneGeneral() + "\n");
+            Console.WriteLine("Classe de " + sixiemeA.nomClasse + ", Moyenne Generale : " + sixiemeA.moyenneGeneral() + "\n");
             Console.Read();
         }
     }
