@@ -10,11 +10,11 @@ namespace HNI_TPmoyennes
     public class Classe
     {
 
-        public string NomClasse { get; private set; }
+        public string NomClasse { get; set; }
         public List<string> Matieres { get; set; }
-        public List<Eleve> Eleves { get; private set; }
+        public List<Eleve> Eleves { get; set; }
 
-        public List<float> MoyennesClasse { get; private set; }
+        public List<float> MoyennesClasse { get; set; }
 
         public int tailleMaxMatiere = 10;
         public int tailleMaxEleve = 30;

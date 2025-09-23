@@ -56,14 +56,15 @@ namespace HNI_TPmoyennes
         public float MoyenneGeneral()
         {
             // Ajouts des moyennes des matières dans une liste
-                        
-            List<string> list = Classe.GetListeMatieres();
-            List<string> Matieres = list;
-            int NbMatieres = Matieres.Count;
+
+            Classe TestClasse = new Classe("Test");
+            List<string> Matieres = TestClasse.GetListeMatieres();
+
+            var NbMatieres = new int[] { };
             
             for (int i = 0; i < Notes.Count; i++)
             {
-                
+               
             }
                                          
             for (int i = 0; i < NbMatieres ; i++)
