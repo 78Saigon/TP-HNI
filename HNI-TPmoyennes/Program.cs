@@ -14,53 +14,60 @@ namespace HNI_TPmoyennes
             // Création d'une classe
             Classe sixiemeA = new Classe("6eme A");
             // Ajout des élèves à la classe
-            sixiemeA.ajouterEleve("Jean", "RAGE");
-            sixiemeA.ajouterEleve("Paul", "HAAR");
-            sixiemeA.ajouterEleve("Sibylle", "BOQUET");
-            sixiemeA.ajouterEleve("Annie", "CROCHE");
-            sixiemeA.ajouterEleve("Alain", "PROVISTE");
-            sixiemeA.ajouterEleve("Justin", "TYDERNIER");
-            sixiemeA.ajouterEleve("Sacha", "TOUILLE");
-            sixiemeA.ajouterEleve("Cesar", "TICHO");
-            sixiemeA.ajouterEleve("Guy", "DON");
+            sixiemeA.AjouterEleve("Jean", "RAGE");
+            sixiemeA.AjouterEleve("Paul", "HAAR");
+            sixiemeA.AjouterEleve("Sibylle", "BOQUET");
+            sixiemeA.AjouterEleve("Annie", "CROCHE");
+            sixiemeA.AjouterEleve("Alain", "PROVISTE");
+            sixiemeA.AjouterEleve("Justin", "TYDERNIER");
+            sixiemeA.AjouterEleve("Sacha", "TOUILLE");
+            sixiemeA.AjouterEleve("Cesar", "TICHO");
+            sixiemeA.AjouterEleve("Guy", "DON");
             // Ajout de matières étudiées par la classe
-            sixiemeA.ajouterMatiere("Francais");
-            sixiemeA.ajouterMatiere("Anglais");
-            sixiemeA.ajouterMatiere("Physique/Chimie");
-            sixiemeA.ajouterMatiere("Histoire");
+            sixiemeA.AjouterMatiere("Francais");
+            sixiemeA.AjouterMatiere("Anglais");
+            sixiemeA.AjouterMatiere("Physique/Chimie");
+            sixiemeA.AjouterMatiere("Histoire");
             Random random = new Random();
             // Ajout de 5 notes à chaque élève et dans chaque matière
-            for (int ieleve = 0; ieleve < sixiemeA.eleves.Count; ieleve++)
+            for (int ieleve = 0; ieleve < sixiemeA.Eleves.Count; ieleve++)
             {
-                for (int matiere = 0; matiere < sixiemeA.matieres.Count; matiere++)
+                for (int matiere = 0; matiere < sixiemeA.Matieres.Count; matiere++)
                 {
                     for (int i = 0; i < 5; i++)
                     {
-                       sixiemeA.eleves[ieleve].ajouterNote(new Note(matiere, (float)((6.5 +
+                       sixiemeA.Eleves[ieleve].AjouterNote(new Note(matiere, (float)((6.5 +
                        random.NextDouble() * 34)) / 2.0f));
+                       
                         // Note minimale = 3
                     }
                 }
             }
 
            
-            Eleve eleve = sixiemeA.eleves[1];
+            Eleve eleve = sixiemeA.Eleves[4];
             // Afficher la moyenne d'un élève dans une matière
-            Console.WriteLine(eleve.prenom + " " + eleve.nom + ", Moyenne en " + sixiemeA.matieres[3] + " : " +
-            eleve.moyenneMatiere(3) + "\n");
-            Console.WriteLine(eleve.prenom + " " + eleve.nom + ", Moyenne en " + sixiemeA.matieres[2] + " : " +
-            eleve.moyenneMatiere(2) + "\n");
-            Console.WriteLine(eleve.prenom + " " + eleve.nom + ", Moyenne en " + sixiemeA.matieres[1] + " : " +
-            eleve.moyenneMatiere(1) + "\n");
-            Console.WriteLine(eleve.prenom + " " + eleve.nom + ", Moyenne en " + sixiemeA.matieres[0] + " : " +
-            eleve.moyenneMatiere(0) + "\n");
+            Console.WriteLine(eleve.Prenom + " " + eleve.Nom + ", Moyenne en " + sixiemeA.Matieres[3] + " : " +
+            eleve.MoyenneMatiere(3) + "\n");
+            Console.WriteLine(eleve.Prenom + " " + eleve.Nom + ", Moyenne en " + sixiemeA.Matieres[2] + " : " +
+            eleve.MoyenneMatiere(2) + "\n");
+            Console.WriteLine(eleve.Prenom + " " + eleve.Nom + ", Moyenne en " + sixiemeA.Matieres[1] + " : " +
+            eleve.MoyenneMatiere(1) + "\n");
+            Console.WriteLine(eleve.Prenom + " " + eleve.Nom + ", Moyenne en " + sixiemeA.Matieres[0] + " : " +
+            eleve.MoyenneMatiere(0) + "\n");
             // Afficher la moyenne générale du même élève
-            Console.WriteLine(eleve.prenom + " " + eleve.nom + ", Moyenne Generale : " + eleve.moyenneGeneral() + "\n");
+            Console.WriteLine(eleve.Prenom + " " + eleve.Nom + ", Moyenne Generale : " + eleve.MoyenneGeneral() + "\n");
             // Afficher la moyenne de la classe dans une matière
-            Console.WriteLine("Classe de " + sixiemeA.nomClasse + ", Moyenne en " + sixiemeA.matieres[0] + " : " +
-            sixiemeA.moyenneMatiere(0) + "\n");
+            Console.WriteLine("Classe de " + sixiemeA.NomClasse + ", Moyenne en " + sixiemeA.Matieres[3] + " : " +
+            sixiemeA.MoyenneMatiere(3) + "\n");
+            Console.WriteLine("Classe de " + sixiemeA.NomClasse + ", Moyenne en " + sixiemeA.Matieres[2] + " : " +
+            sixiemeA.MoyenneMatiere(2) + "\n");
+            Console.WriteLine("Classe de " + sixiemeA.NomClasse + ", Moyenne en " + sixiemeA.Matieres[1] + " : " +
+            sixiemeA.MoyenneMatiere(1) + "\n");
+            Console.WriteLine("Classe de " + sixiemeA.NomClasse + ", Moyenne en " + sixiemeA.Matieres[0] + " : " +
+            sixiemeA.MoyenneMatiere(0) + "\n");
             // Afficher la moyenne générale de la classe
-            Console.WriteLine("Classe de " + sixiemeA.nomClasse + ", Moyenne Generale : " + sixiemeA.moyenneGeneral() + "\n");
+            Console.WriteLine("Classe de " + sixiemeA.NomClasse + ", Moyenne Generale : " + sixiemeA.MoyenneGeneral() + "\n");
             Console.Read();
         }
     }
