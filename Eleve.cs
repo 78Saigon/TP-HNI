@@ -85,7 +85,7 @@ namespace HNI_TPmoyennes
                 }
             }
 
-            // La taille de Notes3 correspond au nombre de matières
+            // La taille de notes3 correspond au nombre de matières
             int NbMatieres = notes3.Count;
 
             if (NbMatieres == 0)
@@ -104,4 +104,5 @@ namespace HNI_TPmoyennes
 
     }
 }
+
 
