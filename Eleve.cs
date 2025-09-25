@@ -57,6 +57,7 @@ namespace HNI_TPmoyennes
             }
 
             float moyenneMatiere = notes2.Average();
+            notes2.Clear();
                         
             return (float)Math.Truncate((moyenneMatiere * 100)) / 100;
 
@@ -103,3 +104,4 @@ namespace HNI_TPmoyennes
 
     }
 }
+
