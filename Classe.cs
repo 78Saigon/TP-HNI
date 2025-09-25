@@ -13,25 +13,19 @@ namespace HNI_TPmoyennes
         public string nomClasse { get; set; }
         public List<string> matieres { get; set; }
         public List<Eleve> eleves { get; set; }
-
-        public List<float> moyennesClasse { get; set; }
-        public List<float> moyennesMatiere { get; set; }
-
-        public int tailleMaxMatiere = 10;
-        public int tailleMaxEleve = 30;
+        
 
         public Classe(string Nom)
         {
             nomClasse = Nom;
             eleves = new List<Eleve>();
-            matieres = new List<string>();
-            moyennesClasse = new List<float>();
-            moyennesMatiere = new List<float>();
+            matieres = new List<string>();                        
         }
              
 
-        public void AjouterEleve(string prenom, string nom)
+        public void ajouterEleve(string prenom, string nom)
         {
+            int tailleMaxEleve = 30;
 
             if (eleves.Count < tailleMaxEleve)
             {
@@ -43,8 +37,9 @@ namespace HNI_TPmoyennes
             }
         }
 
-        public void AjouterMatiere(string nomMatiere)
+        public void ajouterMatiere(string nomMatiere)
         {
+            int tailleMaxMatiere = 10;
 
             if (matieres.Count < tailleMaxMatiere)
             {
@@ -57,8 +52,10 @@ namespace HNI_TPmoyennes
         }
 
         // Calcul de la moyenne de la classe dans une matière
-        public float MoyenneMatiere(int matiere)
+        public float moyenneMatiere(int matiere)
         {
+            List<float> moyennesMatiere = new List<float>();
+
             // Recolte des moyenne des élèves dans une matière dans la liste MoyennesMatiere
             foreach (Eleve eleveBoucle in eleves)
             {
@@ -67,23 +64,31 @@ namespace HNI_TPmoyennes
                 {
                     if (i == matiere)
                     {
-                        moyennesMatiere.Add(eleveBoucle.MoyenneMatiere(i));
+                        moyennesMatiere.Add(eleveBoucle.moyenneMatiere(i));
                     }
                     
                 }
             }
 
             float moyennesMatiereClasse = moyennesMatiere.Average();
-
-            moyennesClasse.Add(moyennesMatiereClasse);
-            // MoyennesClasse récupère les moyennes de la classe dans chaque matière
+            moyennesMatiere.Clear();
 
             return (float)Math.Truncate(moyennesMatiereClasse * 100) / 100;
         }
 
         // Calcul de la moyenne générale de la classe
-        public float MoyenneGeneral()
+
+
+        public float moyenneGeneral()
         {
+            List<float> moyennesClasse = new List<float>();
+
+            for (int i = 0; i < matieres.Count; i++)
+            {
+                moyennesClasse.Add(moyenneMatiere(i));
+            }
+
+
             return (float)Math.Truncate(moyennesClasse.Average() * 100) / 100;
         }
 

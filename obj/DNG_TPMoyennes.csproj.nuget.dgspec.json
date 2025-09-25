@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dangn\\source\\repos\\78Saigon\\TP-HNI\\DNG_TPMoyennes\\DNG_TPMoyennes.csproj": {}
+    "C:\\Users\\dangn\\source\\repos\\TP-HNI\\DNG_TPMoyennes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dangn\\source\\repos\\78Saigon\\TP-HNI\\DNG_TPMoyennes\\DNG_TPMoyennes.csproj": {
+    "C:\\Users\\dangn\\source\\repos\\TP-HNI\\DNG_TPMoyennes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dangn\\source\\repos\\78Saigon\\TP-HNI\\DNG_TPMoyennes\\DNG_TPMoyennes.csproj",
+        "projectUniqueName": "C:\\Users\\dangn\\source\\repos\\TP-HNI\\DNG_TPMoyennes.csproj",
         "projectName": "DNG_TPMoyennes",
-        "projectPath": "C:\\Users\\dangn\\source\\repos\\78Saigon\\TP-HNI\\DNG_TPMoyennes\\DNG_TPMoyennes.csproj",
+        "projectPath": "C:\\Users\\dangn\\source\\repos\\TP-HNI\\DNG_TPMoyennes.csproj",
         "packagesPath": "C:\\Users\\dangn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dangn\\source\\repos\\78Saigon\\TP-HNI\\DNG_TPMoyennes\\obj\\",
+        "outputPath": "C:\\Users\\dangn\\source\\repos\\TP-HNI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

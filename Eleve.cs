@@ -15,26 +15,22 @@ namespace HNI_TPmoyennes
         public string prenom { get; private set; }
         public string nom { get; private set; }
         public List<Note> notes { get; private set; }
-        public List<float> moyennes { get; set; }
-        public List<float> notes2 { get; set; }
         
-        public const int nombreMaxNotes = 200;
-
-                        
+                                
         public Eleve(string prenom, string nom)
         {
             this.prenom = prenom;
             this.nom = nom;
             this.notes = new List<Note>();
-            this.moyennes = new List<float>();
-            this.notes2 = new List<float>();
-
+                        
         }
 
 
         // Ajout d'une note
-        public void AjouterNote(Note note)
+        public void ajouterNote(Note note)
         {
+            const int nombreMaxNotes = 200;
+
             if (notes.Count < nombreMaxNotes)
             {
                 notes.Add(note);     
@@ -47,8 +43,10 @@ namespace HNI_TPmoyennes
         }
 
         // Calcul de la moyenne par matière
-        public float MoyenneMatiere(int matiere)
+        public float moyenneMatiere(int matiere)
         {
+            List<float> notes2 = new List<float>();
+            
             for (int i = 0; i < notes.Count; i++)
             {
                 if (notes[i].matiere == matiere)
@@ -59,19 +57,44 @@ namespace HNI_TPmoyennes
             }
 
             float moyenneMatiere = notes2.Average();
-            moyennes.Add(moyenneMatiere);
-            
+                        
             return (float)Math.Truncate((moyenneMatiere * 100)) / 100;
 
         }
 
         // Calcul de la moyenne générale à partir des moyennes des matières
-        public float MoyenneGeneral()
+        public float moyenneGeneral()
         {
- 
-            if (moyennes.Count == 0)
+            List<Note> notes3 = new List<Note>();
+            List<float> moyennes = new List<float>();
+
+            // Ajout d'une note dans une liste lorsque c'est une note d'une nouvelle matière                                                                
+            for (int i = 0; i < notes.Count; i++)
+            {
+                if (i == 0)
+                {
+                    notes3.Add(notes[i]);
+                }
+                else
+                {
+                    if (notes[i].matiere != notes[i - 1].matiere)
+                    {
+                        notes3.Add(notes[i]);
+                    }
+                }
+            }
+
+            // La taille de Notes3 correspond au nombre de matières
+            int NbMatieres = notes3.Count;
+
+            if (NbMatieres == 0)
             {
                 return 0;
+            }
+
+            for (int i = 0; i < NbMatieres; i++)
+            {
+                moyennes.Add(moyenneMatiere(i));
             }
                 
             return (float)Math.Truncate((moyennes.Average() * 100)) / 100;

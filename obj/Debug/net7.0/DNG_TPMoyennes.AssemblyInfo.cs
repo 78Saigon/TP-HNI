@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DNG_TPMoyennes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d9f512095a8bc0635458d5f2c33b252c6fe6ef1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ecaf20153c0de7074f699e4e6de93af00c74a10")]
 [assembly: System.Reflection.AssemblyProductAttribute("DNG_TPMoyennes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DNG_TPMoyennes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
