@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
@@ -15,14 +16,12 @@ namespace HNI_TPmoyennes
         public string prenom { get; private set; }
         public string nom { get; private set; }
         public List<Note> notes { get; private set; }
-        
-                                
+      
         public Eleve(string prenom, string nom)
         {
             this.prenom = prenom;
             this.nom = nom;
-            this.notes = new List<Note>();
-                        
+            this.notes = new List<Note>();               
         }
 
 
@@ -45,19 +44,19 @@ namespace HNI_TPmoyennes
         // Calcul de la moyenne par matière
         public float moyenneMatiere(int matiere)
         {
-            List<float> notes2 = new List<float>();
-            
+            List<float> notesMatiere = new List<float>();
+
             for (int i = 0; i < notes.Count; i++)
             {
                 if (notes[i].matiere == matiere)
                 {
-                    notes2.Add(notes[i].note);      
-                    // Notes2 stocke les notes d'une matière
+                    notesMatiere.Add(notes[i].note);      
+                    // notesMatiere stocke les notes d'une matière
                 }
             }
 
-            float moyenneMatiere = notes2.Average();
-            notes2.Clear();
+            float moyenneMatiere = notesMatiere.Average();
+            notesMatiere.Clear();
                         
             return (float)Math.Truncate((moyenneMatiere * 100)) / 100;
 
@@ -66,27 +65,19 @@ namespace HNI_TPmoyennes
         // Calcul de la moyenne générale à partir des moyennes des matières
         public float moyenneGeneral()
         {
-            List<Note> notes3 = new List<Note>();
+            List<int> listeMatieres = new List<int>();
             List<float> moyennes = new List<float>();
 
             // Ajout d'une note dans une liste lorsque c'est une note d'une nouvelle matière                                                                
             for (int i = 0; i < notes.Count; i++)
             {
-                if (i == 0)
+                if (listeMatieres.Contains(notes[i].matiere) == false)
                 {
-                    notes3.Add(notes[i]);
-                }
-                else
-                {
-                    if (notes[i].matiere != notes[i - 1].matiere)
-                    {
-                        notes3.Add(notes[i]);
-                    }
+                    listeMatieres.Add(notes[i].matiere);
                 }
             }
-
-            // La taille de notes3 correspond au nombre de matières
-            int NbMatieres = notes3.Count;
+                        
+            int NbMatieres = listeMatieres.Count;
 
             if (NbMatieres == 0)
             {
@@ -104,5 +95,3 @@ namespace HNI_TPmoyennes
 
     }
 }
-
-
