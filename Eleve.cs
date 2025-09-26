@@ -86,7 +86,17 @@ namespace HNI_TPmoyennes
             float moyenneMatiere = notesMatiere.Average();
             notesMatiere.Clear();
 
-            return (float)Math.Truncate((moyenneMatiere * 100)) / 100;
+
+            try
+            {
+                return (float)Math.Truncate((moyenneMatiere * 100)) / 100;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Erreur de calcul de la moyenne de matière de " + prenom + " " + nom);
+                return 0;
+            }
+            
         }
 
         // Calcul de la moyenne générale à partir des moyennes des matières
