@@ -93,9 +93,19 @@ namespace HNI_TPmoyennes
 
             float moyennesMatiereClasse = moyennesMatiere.Average();
             moyennesMatiere.Clear();
-                        
 
-            return (float)Math.Truncate(moyennesMatiereClasse * 100) / 100;
+
+            try
+            {
+                return (float)Math.Truncate(moyennesMatiereClasse * 100) / 100;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Erreur de calcul de la moyenne de la matière pour la " + nomClasse);
+                return 0;
+            }
+
+            
         }
 
 
