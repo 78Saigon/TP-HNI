@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -39,7 +39,7 @@ namespace HNI_TPmoyennes
 
         public void ajouterMatiere(string nomMatiere)
         {
-            int tailleMaxMatiere = 10;
+            int tailleMaxMatiere = 10;                     
 
             if (matieres.Count < tailleMaxMatiere)
             {
@@ -54,8 +54,29 @@ namespace HNI_TPmoyennes
         // Calcul de la moyenne de la classe dans une matière
         public float moyenneMatiere(int matiere)
         {
-            List<float> moyennesMatiere = new List<float>();
 
+            if (matieres.Count == 0)
+            {
+                Console.WriteLine("Erreur de calcul de la moyenne de la matière pour la " + nomClasse + " : liste des matières vide.");
+                return 0;
+            }
+
+            // Si la matiere n'est pas dans la liste des matières
+            List<int> matieresIndex = new List<int>();
+
+            for (int i = 0; i < matieres.Count; i++)
+            {
+                matieresIndex.Add(i);
+            }
+
+            if (matieresIndex.Contains(matiere) == false)
+            { 
+                Console.WriteLine("Erreur de calcul de la moyenne de la matière pour la " + nomClasse + " : matière inexistante.");
+                return 0;
+            }
+
+            List<float> moyennesMatiere = new List<float>();
+                        
             // Recolte des moyenne des élèves dans une matière dans la liste MoyennesMatiere
             foreach (Eleve eleveBoucle in eleves)
             {
@@ -72,23 +93,35 @@ namespace HNI_TPmoyennes
 
             float moyennesMatiereClasse = moyennesMatiere.Average();
             moyennesMatiere.Clear();
+                        
 
             return (float)Math.Truncate(moyennesMatiereClasse * 100) / 100;
         }
 
+
         // Calcul de la moyenne générale de la classe
-
-
         public float moyenneGeneral()
         {
             List<float> moyennesClasse = new List<float>();
+
+            if (matieres.Count == 0)
+            {
+                Console.WriteLine("Erreur de calcul de la moyenne générale pour la " + nomClasse + " : liste des matières vide.");
+                return 0;
+            }
 
             for (int i = 0; i < matieres.Count; i++)
             {
                 moyennesClasse.Add(moyenneMatiere(i));
             }
 
+            if (moyennesClasse.Count == 0)
+            {
+                Console.WriteLine("Erreur de calcul de la moyenne générale pour la " + nomClasse + " : liste des moyennes vide.");
+                return 0;
+            }
 
+         
             return (float)Math.Truncate(moyennesClasse.Average() * 100) / 100;
         }
 
