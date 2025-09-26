@@ -121,8 +121,17 @@ namespace HNI_TPmoyennes
                 return 0;
             }
 
-         
-            return (float)Math.Truncate(moyennesClasse.Average() * 100) / 100;
+            try
+            {
+                return (float)Math.Truncate(moyennesClasse.Average() * 100) / 100;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Erreur de calcul de la moyenne générale pour la " + nomClasse);
+                return 0;
+            }
+
+            
         }
 
     }
