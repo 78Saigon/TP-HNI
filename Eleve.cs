@@ -63,14 +63,14 @@ namespace HNI_TPmoyennes
 
             if (listeMatieres.Count == 0)
             {
-                Console.WriteLine("Erreur calcul de la moyenne de matière de " + prenom + " " + nom + " : liste des matières vide.");
+                Console.WriteLine("Erreur de calcul de la moyenne de matière de " + prenom + " " + nom + " : liste des matières vide.");
                 return 0;
             }
 
             // Si l'index de la matiere n'est pas dans la liste des matières
-            if (matiere >= listeMatieres.Count)
+            if (listeMatieres.Contains(matiere) == false)
             {
-                Console.WriteLine("Erreur calcul de la moyenne de matière de " + prenom + " " + nom + " : matière inexistante.");
+                Console.WriteLine("Erreur de calcul de la moyenne de matière de " + prenom + " " + nom + " : matière inexistante.");
                 return 0;
             }
 
@@ -107,7 +107,7 @@ namespace HNI_TPmoyennes
 
             if (listeMatieres.Count == 0)
             {
-                Console.WriteLine("Erreur calcul de la moyenne générale de " + prenom + " " + nom + " : liste des matières vide.");
+                Console.WriteLine("Erreur de calcul de la moyenne générale de " + prenom + " " + nom + " : liste des matières vide.");
                 return 0;
             }
 
@@ -118,7 +118,7 @@ namespace HNI_TPmoyennes
 
             if (moyennes.Count == 0)
             {
-                Console.WriteLine("Erreur calcul de la moyenne générale de " + prenom + " " + nom + " : liste des moyennes vide.");
+                Console.WriteLine("Erreur de calcul de la moyenne générale de " + prenom + " " + nom + " : liste des moyennes vide.");
                 return 0;
             }
 
